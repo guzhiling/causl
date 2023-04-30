@@ -23,6 +23,7 @@ knitr::opts_chunk$set(
 
 As always, we begin by loading the package.
 ```{r load, include=TRUE, message=FALSE}
+# devtools::install_github("rje42/causl")
 library(causl)
 library(purrr)
 library(survey)
@@ -65,7 +66,10 @@ dat_max <- rfrugalParam(n, formulas = forms, pars=pars,
 ```
 
 ```{r echo=FALSE, eval=FALSE}
-library(tidyverse)
+# library(tidyverse)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
 dat_max <- dat_max %>% tibble %>% 
   mutate(`(A,B)`=factor(A0+2*A1))
 levels(dat_max$`(A,B)`) <- c("(0,0)", "(1,0)", "(0,1)", "(1,1)")
